@@ -1,0 +1,175 @@
+package Test;
+import java.util.List;
+import java.util.concurrent.TimeUnit;import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+public class Code1 
+{
+	public static void main(String[] args) 
+	{	
+	//OpenWebsiteonchrome
+	WebDriver driver = new ChromeDriver();
+	driver.get("https://www.tendable.com/");
+	driver.manage().window().maximize();
+	
+	//HOME DROPDOWN TESTS
+	//#1-Home-MenuVerification
+	driver.findElement(By.xpath("/html/body/header/div/a/img")).click();
+	WebElement home = driver.findElement(By.xpath("//*[@id=\"image-169706\"]/div/figure/img"));
+	if (home!=null)
+	System.out.println("'Home' page has opened, home button is not a dropdown.");
+	else 
+	System.out.println("'Home' page is not accessible.");
+	//#2-Home-'Requestademobutton'Verification
+	WebElement homerdemobutton = driver.findElement(By.xpath("/html/body/header/div/div[1]/a[3]"));
+	if (homerdemobutton!=null)
+	System.out.println("'Request a Demo' button is present on 'Home' page.");
+	else
+	System.out.println("'Request a Demo' button is Not present on 'Home' page.");
+	
+	
+	//OURSTORY DROPDOWN TESTS
+	//#1-OurStory-MenuVerification
+	WebElement ourstoryheader = driver.findElement(By.xpath("//*[@id=\"main-navigation-new\"]/ul/li[1]"));
+	Actions houveronstory = new Actions(driver);
+	houveronstory.moveToElement(ourstoryheader).build().perform();
+	WebElement storypagemenu = driver.findElement(By.xpath("//*[@id=\"main-navigation-new\"]/ul/li[1]/a"));
+	if (storypagemenu!=null)
+	System.out.println("\n'Our Story' menu is available on houvering.");
+	else 
+	System.out.println("'Our Story' menu is not accessible.");
+	
+	List <WebElement> ourstorylist = driver.findElements(By.xpath("//*[@id=\"main-navigation-new\"]/ul/li[1]/ul/li/a"));
+	System.out.print(ourstorylist.size());
+	System.out.println(" Menu Items are present for 'Our Story' dropdown.");
+		
+	//#2-OurStoryPage'RequestaDemobutton'Verification
+	driver.findElement(By.xpath("//*[@id=\"main-navigation-new\"]/ul/li[1]/a")).click();
+	WebElement story = driver.findElement(By.xpath("//*[@id=\"image-135834\"]/div/figure/img"));
+	if (story!=null)
+	System.out.println("'Our Story' page has opened.");
+	else 
+	System.out.println("'Our Story' page is not accessible.");
+	WebElement storyrdemobutton = driver.findElement(By.xpath("/html/body/header/div/div[1]/a[3]"));
+	if (storyrdemobutton!=null)
+	System.out.println("'Request a Demo' button is present on 'Our Story' page.");
+	else
+	System.out.println("'Request a Demo' button is Not present on 'Our Story' page.");
+	
+	//OURSOLUTION DROPDOWN TESTS
+	//#1-OurSolution-MenuVerification
+	WebElement oursolutionheader = driver.findElement(By.xpath("//*[@id=\"main-navigation-new\"]/ul/li[2]"));
+	Actions houveronsolution = new Actions(driver);
+	houveronsolution.moveToElement(oursolutionheader).build().perform();
+	WebElement solutionpagemenu = driver.findElement(By.xpath("//*[@id=\"main-navigation-new\"]/ul/li[2]/ul/li/a"));
+	if (solutionpagemenu!=null)
+	System.out.println("\n'Our Solution' menu has opened.");
+	else 
+	System.out.println("'Our Solution' menu is not accessible.");
+	
+	List <WebElement> oursolutionlist = driver.findElements(By.xpath("//*[@id=\"main-navigation-new\"]/ul/li[2]/ul/li/a"));
+	System.out.print(oursolutionlist.size());
+	System.out.println(" Menu Items are present for 'Our Solution' dropdown. ");
+		
+	//#2-Oursolution'Requestademobutton'Verification
+	driver.findElement(By.xpath("//*[@id=\"main-navigation-new\"]/ul/li[2]")).click();
+	WebElement solutionpage = driver.findElement(By.xpath("//*[@id=\"text-142615\"]/div[1]/h1"));
+	if (solutionpage!=null)
+	System.out.println("'Our Solution' page has opened.");
+	else 
+	System.out.println("'Our Solution' page is not accessible.");
+	WebElement solutionrdemobutton = driver.findElement(By.xpath("/html/body/header/div/div[1]/a[3]"));
+	if (solutionrdemobutton!=null)
+	System.out.println("'Request a Demo' button is present on 'Our Solution' page.");
+	else
+	System.out.println("'Request a Demo' button is Not present on 'Our Solution' page.");
+	
+	//WHYTENDABLE DROPDOWN TESTS
+	//#1-MenuVerification
+	WebElement whytendableheader = driver.findElement(By.xpath("//*[@id=\"main-navigation-new\"]/ul/li[3]/a"));
+	Actions houverwhytendable = new Actions(driver);
+	houverwhytendable.moveToElement(whytendableheader).build().perform();
+	WebElement whytendablemenu = driver.findElement(By.xpath("//*[@id=\"main-navigation-new\"]/ul/li[3]/a"));
+	if (whytendablemenu!=null)
+	System.out.println("\n'Why Tendable' menu has opened.");
+	else 
+	System.out.println("'Why Tendable' menu is not accessible.");
+		
+	List <WebElement> whytendablelist = driver.findElements(By.xpath("//*[@id=\"main-navigation-new\"]/ul/li[3]/ul/li/a"));
+	System.out.print(whytendablelist.size());
+	System.out.println(" Menu Items are present for 'Why Tendable' dropdown.");
+		
+	//#2-Whytendable'Requestademobutton'Verification
+	driver.findElement(By.xpath("//*[@id=\"main-navigation-new\"]/ul/li[3]/a")).click();
+	WebElement whytendablenpage = driver.findElement(By.xpath("//*[@id=\"text-141614\"]/div"));
+	if (whytendablenpage!=null)
+	System.out.println("'Why Tendable' page has opened.");
+	else 
+	System.out.println("'Why Tendable' page is not accessible.");
+	WebElement whytendablerdemobutton = driver.findElement(By.xpath("/html/body/header/div/div[1]/a[3]"));
+	if (whytendablerdemobutton!=null)
+	System.out.println("'Request a Demo' button is present on 'Why Tendable' page.");
+	else
+	System.out.println("'Request a Demo' button is Not present on 'Why Tendable' page.");
+	
+	//ABOUTUS DROPDOWN TESTS
+	//#1-MenuVerification
+	WebElement aboutusheader = driver.findElement(By.xpath("//*[@id=\"main-navigation-new\"]/ul/li[4]"));
+	Actions aboutushouver = new Actions(driver);
+	aboutushouver.moveToElement(aboutusheader).build().perform();
+	WebElement Aboutus = driver.findElement(By.xpath("//*[@id=\"main-navigation-new\"]/ul/li[4]/a"));
+	if (Aboutus!=null)
+	System.out.println("\n'About us' menu has opened.");
+	else 
+	System.out.println("'About us' menu is not accessible.");
+		
+	List <WebElement> aboutuslist = driver.findElements(By.xpath("//*[@id=\"main-navigation-new\"]/ul/li[4]/ul/li/a"));
+	System.out.print(aboutuslist.size());
+	System.out.println(" Menu Items are present for 'About us' dropdown.");
+	
+	//CONTACT US PAGE - MARKETING FORM Submission TESTING
+	
+	driver.findElement(By.xpath("/html/body/header/div/div[1]/a[1]")).click();
+	driver.findElement(By.xpath("/html/body/div[4]/div/div/div[2]/div/div/div[1]/div/div[2]/div[2]/button")).click();
+	WebElement Marketingenquiries = driver.findElement(By.xpath("/html/body/div[5]/div/div[1]/div/ul/li/span"));
+	if (Marketingenquiries!=null)
+	System.out.println("\n'Marketing Enquiries form Submission' page has opened.");
+	
+	WebElement fullname = driver.findElement(By.id("form-input-fullName"));
+	Actions entertextfullname = new Actions(driver);
+	entertextfullname.sendKeys(fullname,"Testabcname").perform();
+	
+	WebElement orgname = driver.findElement(By.id("form-input-organisationName"));
+	Actions entertextorg = new Actions(driver);
+	entertextorg.sendKeys(orgname,"Testabcnameorg").perform();
+	
+	WebElement phone = driver.findElement(By.id("form-input-cellPhone"));
+	Actions enterphone = new Actions(driver);
+	enterphone.sendKeys(phone,"1234567890").perform();
+	
+	WebElement email = driver.findElement(By.id("form-input-email"));
+	Actions enteremail = new Actions(driver);
+	enteremail.sendKeys(email,"test@tendable.com").perform();
+		
+	WebElement jobroledrop = driver.findElement(By.id("form-input-jobRole"));
+	Select dropdown = new Select(jobroledrop);
+	dropdown.selectByVisibleText("Management");
+	
+	WebElement radioagree = driver.findElement(By.id("form-input-consentAgreed-0"));
+	radioagree.click();
+	
+	WebElement submitButton = driver.findElement(By.name("form_page_submit"));
+	submitButton.click();
+
+	//WebDriverWait wait = new WebDriverWait(driver,30);
+	
+	WebElement e = driver.findElement(By.className("ff-form-errors"));
+    String errormessage = e.getText();
+    System.out.println("Error message is: "+ errormessage);
+    
+	}
+}
